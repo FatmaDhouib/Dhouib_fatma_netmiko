@@ -17,14 +17,16 @@ def acces_netmiko():
 
 	output = ssh.send_command('show ip int br')
 
-print(result1)
-with open ('interfaces.txt') as f:
+	with open ("interfaces.txt", "w") as f:
 
-	ssh.send_command('show ip int br')
-	print(f.read())
+		f.write(output)
+	print("interfaces to interfaces.txt")
+
+acces_netmiko()
 
 
 def dire_salut():
+
 	print("Salut, Git!")
 
 
