@@ -34,29 +34,39 @@ Nano main.py
 
 ******Script python ajoute: 
 
- 	From netmiko import ConnectHandler 
+ 	from netmiko import ConnectHandler
 
-	Cisco_router = { 
+cisco_router = {
+        'device_type' : 'cisco_ios',
+        'host' : 'sandbox-iosxr-1.cisco.com',
+        'username' : 'admin',
+        'password' : 'C1sco12345',
+        'port' : 22,
+}
 
-'device_type' : 'cisco_ios', 
+ssh = ConnectHandler(**cisco_router)
 
- 'host' : ' 'sandbox-iosxr-1.cisco.com',  
+def acces_netmiko():
 
-'username' : 'admin', 
+        output1 = ssh.send_command('show clock')
 
- 'password' : 'C1sco12345',  
+        output = ssh.send_command('show ip int br')
 
-'port' : 22, 
+        with open ("interfaces.txt", "w") as f:
 
-            }  
+                f.write(output)
+        print("interfaces to interfaces.txt")
 
-ssh = ConnectHandler(**cisco_router) 
+acces_netmiko()
 
-def acces_netmiko() 
 
-  result1 = ssh.send_command('show clock') 
- 
-   result2 = ssh.send_command('show ip int br')> interfaces.txt 
+def dire_salut():
+
+        print("Salut, Git!")
+
+
+dire_salut()
+
  
 
  
