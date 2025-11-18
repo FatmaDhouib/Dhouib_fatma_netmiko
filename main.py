@@ -16,3 +16,8 @@ def acces_netmiko()
 	result2 = ssh.send_command('show ip int br')> interfaces.txt
 
 
+def dire_salut():
+	print("Salut, Git!")
+
+
+dire_salut()
